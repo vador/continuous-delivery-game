@@ -9,6 +9,7 @@ run apt-get update \
       ruby \
       inotify-tools \
     && apt-get clean 
+run useradd --uid 1000 -d /workspace user
 add Gemfile /workspace/Gemfile
 add Gemfile.lock /workspace/Gemfile.lock
 workdir /workspace
