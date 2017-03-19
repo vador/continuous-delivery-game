@@ -3,7 +3,7 @@ require 'yaml'
 require 'game_icons'
 
 Version=1
-Copywright = "version: v#{Version}"
+Copyright = "version: v#{Version}"
 
 def yaml2dataframe(yamldata)
   resultCards = Squib::DataFrame.new
@@ -47,6 +47,9 @@ end
 Cards = YAML.load_file('data/cards.yml')
 Cards2 = yaml2dataframe(Cards)
 
+noofcards = (Cards.size/8+1)*8*2
+
+
 Squib::Deck.new(cards: Cards.size, layout: 'layout-cards-white.yml') do
   background color: 'white'
   rect layout: 'cut' # cut line as defined by TheGameCrafter
@@ -67,3 +70,5 @@ Squib::Deck.new(cards: Cards.size, layout: 'layout-cards-white.yml') do
 
   save_home_made "cards-white.pdf"
 end
+
+
