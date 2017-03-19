@@ -2,7 +2,7 @@ require 'squib'
 
 verso = 'ajisro-back.pdf'
 
-task default: [:deck]
+task default: [:deck, :deck_back, :collate]
 
 directory "_verso"
 
@@ -12,6 +12,14 @@ end
 
 task :deck_color do
   load 'deck_color.rb'
+end
+
+task :deck_back do
+  load 'card-back.rb'
+end
+
+task :collate do
+  load 'collate.rb'
 end
 
 task :verso => [:deck, "_verso"] do
